@@ -17,7 +17,7 @@ public class Vegetable : MonoBehaviour
 
     private NavMeshAgent temp;
 
-    public float time = 5f;
+    public float time = 5000f; 
 
 
     // Start is called before the first frame update
@@ -42,19 +42,30 @@ public class Vegetable : MonoBehaviour
             //Instantiate(vege, p.position, Quaternion.identity); 
         }
         */
-
-        if(touchedVege)
-        {
-           while(time != 0)
-            {
-                time -= Time.deltaTime; 
-            }
-
-            temp.speed = 2; 
-        }
     }
 
+    /*
+    void Update()
+    {
+        if (touchedVege)
+        {
+            Debug.Log("inside touchedVEGE true");
 
+            float start = Time.deltaTime;
+
+            while (time != 0)
+            {
+                float diff = Time.deltaTime - start;
+                Debug.Log(diff); 
+                if (diff >= 5f)
+                {
+                    temp.speed = 2;
+                    time = 0;
+                }
+            }
+        }
+    }
+    */ 
 
     private void OnTriggerStay(Collider other)
     {
@@ -72,31 +83,34 @@ public class Vegetable : MonoBehaviour
             Debug.Log("AI ennemy detected");
             temp = other.gameObject.GetComponent<NavMeshAgent>();
 
-            temp.speed = 0; 
+            //temp.speed = 0; 
 
             //temp.speed = 0.7f;
-            this.gameObject.SetActive(false);
 
 
-            //StartCoroutine(countDown(temp)); 
+            StartCoroutine(countDown(temp));
+
+            Debug.Log("Counted 5 seconds");
+            temp.speed = 2;
+
             //DateTime current = DateTime.Now;
 
-            touchedVege = true; 
-           
+            //touchedVege = true;
+            //Debug.Log(touchedVege); 
         }
     }
 
-    /*
+    
     IEnumerator countDown(NavMeshAgent temp)
     {
         Debug.Log("Inside countdown");
 
-
+        this.gameObject.SetActive(false);
         temp.speed = 0; 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(time);
 
     }
-    */ 
+    
 
 
 }

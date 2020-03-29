@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -187,6 +188,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -344,6 +346,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -404,8 +407,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457340873}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 0.2627451, g: 0.4, b: 0.98039216, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -579,7 +583,7 @@ PrefabInstance:
     - target: {fileID: 2658707089527918535, guid: 3717d65d0f842d0408ed07b0743bf6e6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.69
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 2658707089527918535, guid: 3717d65d0f842d0408ed07b0743bf6e6,
         type: 3}
@@ -831,6 +835,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -926,6 +931,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1017,6 +1023,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1161,7 +1168,7 @@ PrefabInstance:
     - target: {fileID: 4364229773307306049, guid: 541e8999d5496c34a805c17a47883a71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.26
+      value: 22.83
       objectReference: {fileID: 0}
     - target: {fileID: 4364229773307306049, guid: 541e8999d5496c34a805c17a47883a71,
         type: 3}
@@ -1458,8 +1465,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1530650170}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.78074414, b: 0.25, a: 1}
   m_Intensity: 15.49
   m_Range: 3.91
@@ -1866,8 +1874,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874422626}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 0
+  m_Shape: 0
   m_Color: {r: 0.5647059, g: 0.23137257, b: 0.40784317, a: 1}
   m_Intensity: 6
   m_Range: 15
@@ -2024,7 +2033,7 @@ PrefabInstance:
     - target: {fileID: 6624690808895412341, guid: b480009973969564bba497bb3b5b38c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.78
+      value: 23.51
       objectReference: {fileID: 0}
     - target: {fileID: 6624690808895412341, guid: b480009973969564bba497bb3b5b38c7,
         type: 3}
@@ -2034,7 +2043,7 @@ PrefabInstance:
     - target: {fileID: 6624690808895412341, guid: b480009973969564bba497bb3b5b38c7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.58
+      value: -9.88
       objectReference: {fileID: 0}
     - target: {fileID: 6624690808895412341, guid: b480009973969564bba497bb3b5b38c7,
         type: 3}
@@ -2212,6 +2221,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2303,6 +2313,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2395,7 +2406,7 @@ PrefabInstance:
     - target: {fileID: 3768841679586184526, guid: e6cbd7e81c8a53e489f7268bb7388874,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8703722
+      value: 23.600372
       objectReference: {fileID: 0}
     - target: {fileID: 3768841679586184526, guid: e6cbd7e81c8a53e489f7268bb7388874,
         type: 3}
@@ -2405,7 +2416,7 @@ PrefabInstance:
     - target: {fileID: 3768841679586184526, guid: e6cbd7e81c8a53e489f7268bb7388874,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.574073
+      value: -10.874073
       objectReference: {fileID: 0}
     - target: {fileID: 3768841679586184526, guid: e6cbd7e81c8a53e489f7268bb7388874,
         type: 3}
