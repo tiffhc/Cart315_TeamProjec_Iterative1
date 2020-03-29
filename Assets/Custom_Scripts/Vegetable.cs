@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
+using System; 
 
 public class Vegetable : MonoBehaviour
 {
     private bool f_pressed;
     private bool e_pressed;
+
+    private bool touchedVege; 
 
     public float speed = 1000f; 
     //public GameObject vege; 
@@ -14,7 +17,9 @@ public class Vegetable : MonoBehaviour
 
     private NavMeshAgent temp;
 
-    public float time = 1000f; 
+    public float time = 5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +43,18 @@ public class Vegetable : MonoBehaviour
         }
         */
 
+        if(touchedVege)
+        {
+           while(time != 0)
+            {
+                time -= Time.deltaTime; 
+            }
+
+            temp.speed = 2; 
+        }
     }
 
-   
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -58,58 +72,31 @@ public class Vegetable : MonoBehaviour
             Debug.Log("AI ennemy detected");
             temp = other.gameObject.GetComponent<NavMeshAgent>();
 
-            //temp.Stop(); 
-            //temp.isStopped = true;
+            temp.speed = 0; 
 
-            //StartCoroutine(countDown(temp));
+            //temp.speed = 0.7f;
+            this.gameObject.SetActive(false);
 
-            /*
-            while (time > 0)
-            {
-                time -= Time.deltaTime;
-                Debug.Log(time);
-            }
-            */
 
-            /*
-            while(time > 0)
-            {
-                time -= 1f;
-                Debug.Log(time);
-            }
-            */
+            //StartCoroutine(countDown(temp)); 
+            //DateTime current = DateTime.Now;
 
-            //Debug.Log("back into here");
-
-            //temp.isStopped = false; 
-
-            //temp.Resume(); 
-
-            //temp.angularSpeed = 0;
+            touchedVege = true; 
            
-           temp.speed = 0.7f;
-
-           this.gameObject.SetActive(false); 
         }
     }
-
 
     /*
     IEnumerator countDown(NavMeshAgent temp)
     {
-        Debug.Log("Inside countdown"); 
+        Debug.Log("Inside countdown");
 
-   
-        yield return new WaitForSeconds(time);
-        
-        while(time > 0)
-        {
-            time -= Time.deltaTime;
-            Debug.Log(time); 
-        }
+
+        temp.speed = 0; 
+        yield return new WaitForSeconds(5);
 
     }
-    */
+    */ 
 
 
 }
