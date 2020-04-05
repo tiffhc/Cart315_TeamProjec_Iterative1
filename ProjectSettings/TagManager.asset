@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vegetable
   - AI
+  - warning
   layers:
   - Default
   - TransparentFX
