@@ -17,7 +17,7 @@ public class Vegetable : MonoBehaviour
 
     private NavMeshAgent temp;
 
-    public float time = 5000f; 
+    public float time = 5f; 
 
 
     // Start is called before the first frame update
@@ -77,22 +77,17 @@ public class Vegetable : MonoBehaviour
                 this.gameObject.SetActive(false); 
             }
         }
+    }
 
-        if(other.gameObject.CompareTag("AI"))
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("AI"))
         {
             Debug.Log("AI ennemy detected");
             temp = other.gameObject.GetComponent<NavMeshAgent>();
 
-            //temp.speed = 0; 
-
-            //temp.speed = 0.7f;
-
-
             StartCoroutine(countDown(temp));
-
-            Debug.Log("Counted 5 seconds");
-            temp.speed = 2;
-
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false; 
             //DateTime current = DateTime.Now;
 
             //touchedVege = true;
@@ -100,17 +95,19 @@ public class Vegetable : MonoBehaviour
         }
     }
 
-    
     IEnumerator countDown(NavMeshAgent temp)
     {
         Debug.Log("Inside countdown");
 
-        this.gameObject.SetActive(false);
         temp.speed = 0; 
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(5);
 
+        Debug.Log("Counted 5 seconds");
+        temp.speed = 2;
+
+        Destroy(this.gameObject); 
     }
-    
+
 
 
 }
