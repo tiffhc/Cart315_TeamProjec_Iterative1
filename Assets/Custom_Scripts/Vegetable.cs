@@ -9,6 +9,7 @@ public class Vegetable : MonoBehaviour
     private bool f_pressed;
     private bool e_pressed;
 
+    public bool daikon_ispicked; 
     private bool touchedVege; 
 
     public float speed = 1000f; 
@@ -74,7 +75,8 @@ public class Vegetable : MonoBehaviour
             Debug.Log("Found player by vegetable"); 
             if(f_pressed)
             {
-                this.gameObject.SetActive(false); 
+                this.gameObject.SetActive(false);
+                daikon_ispicked = true; 
             }
         }
     }

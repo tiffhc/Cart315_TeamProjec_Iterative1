@@ -44,7 +44,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public GameObject vegetable;
         private Collider v;
+        public Vegetable daikon;
 
+        bool daikon_picked; 
         // Use this for initialization
         private void Start()
         {
@@ -88,20 +90,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
             //instantiate game object 
+            daikon_picked = daikon.daikon_ispicked;
 
-            if(vegetable.activeSelf == false)
+            if(daikon_picked)
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                if (vegetable.activeSelf == false)
                 {
-                    Debug.Log("Player pressed E");
-                    
-                    vegetable.transform.position = Vector3.MoveTowards(vegetable.transform.position, this.transform.position, 1000f * Time.deltaTime);
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        Debug.Log("Player pressed E");
 
-                    //translate downwards
-                    //vegetable.transform.position.Set(-18f, 0.2f, -4.16f);
-                    vegetable.transform.Translate(new Vector3(0, 0, 1)); 
-                    vegetable.SetActive(true);
-                    v.isTrigger = false; 
+                        vegetable.transform.position = Vector3.MoveTowards(vegetable.transform.position, this.transform.position, 1000f * Time.deltaTime);
+
+                        //translate downwards
+                        //vegetable.transform.position.Set(-18f, 0.2f, -4.16f);
+                        vegetable.transform.Translate(new Vector3(0, 0, 1));
+                        vegetable.SetActive(true);
+                        v.isTrigger = false;
+                    }
                 }
             }
         }
