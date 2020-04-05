@@ -18,6 +18,7 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         UpdateHealthBar();
+        LowHealth.enabled = false;
     }
 
     private void UpdateHealthBar()
@@ -30,9 +31,9 @@ public class HealthBar : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (hitpoint < 20)
+        if (hitpoint < 30)
         {
-            LowHealth.SetActive(true);
+            LowHealth.enabled = true;
         }
 
         hitpoint -= damage;
