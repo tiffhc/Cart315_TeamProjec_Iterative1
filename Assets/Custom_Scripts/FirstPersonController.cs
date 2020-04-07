@@ -94,8 +94,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if(daikon_picked)
             {
-                if (vegetable.activeSelf == false)
-                {
+                //if (vegetable.activeSelf == false)
+                
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         Debug.Log("Player pressed E");
@@ -104,11 +104,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                         //translate downwards
                         //vegetable.transform.position.Set(-18f, 0.2f, -4.16f);
-                        vegetable.transform.Translate(new Vector3(0, 0, 1));
+                        vegetable.transform.Translate(new Vector3(0, 0, 0.5f));
                         vegetable.SetActive(true);
                         v.isTrigger = false;
                     }
-                }
+                
             }
         }
 

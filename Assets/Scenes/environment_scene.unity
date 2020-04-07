@@ -986,7 +986,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673718243}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &673718245
 Camera:
   m_ObjectHideFlags: 0
@@ -1796,6 +1796,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364229773309863297, guid: 541e8999d5496c34a805c17a47883a71,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4364229773313018241, guid: 541e8999d5496c34a805c17a47883a71,
         type: 3}
@@ -3488,7 +3493,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

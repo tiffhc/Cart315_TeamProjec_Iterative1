@@ -34,13 +34,14 @@ public class EnemyAI : MonoBehaviour
         enemySpeed.rectTransform.localScale = new Vector3(r, 1, 1);
     }
 
+    
     public void SpeedUpdate()
     {
         // code for increasing speed and decreasing speed
 
         UpdateSpeedBar();
     }
-
+    
     /*
     private void OnTriggerStay(Collider other)
     {

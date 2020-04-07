@@ -84,7 +84,7 @@ public class Vegetable : MonoBehaviour
                 if (!alreadyPlayed)
                 {
                     Debug.Log("Playing audio"); 
-                    pickup.PlayOneShot(PickUpSound, volume);
+                    pickup.PlayOneShot(PickUpSound);
                     alreadyPlayed = true; 
                 }
                 daikon_ispicked = true;
