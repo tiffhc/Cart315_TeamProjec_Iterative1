@@ -18,20 +18,26 @@ public class Vegetable : MonoBehaviour
 
     private NavMeshAgent temp;
 
-    public float time = 5f; 
+    public float time = 5f;
 
+    //Audio
+
+    public AudioClip PickUpSound;
+    public float volume; 
+    AudioSource pickup;
+    public bool alreadyPlayed = false; 
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        pickup = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         f_pressed = Input.GetKeyDown("f");
-       
+     
         /*
         e_pressed = Input.GetKeyDown("e"); 
 
@@ -75,8 +81,14 @@ public class Vegetable : MonoBehaviour
             Debug.Log("Found player by vegetable"); 
             if(f_pressed)
             {
+                if (!alreadyPlayed)
+                {
+                    Debug.Log("Playing audio"); 
+                    pickup.PlayOneShot(PickUpSound, volume);
+                    alreadyPlayed = true; 
+                }
+                daikon_ispicked = true;
                 this.gameObject.SetActive(false);
-                daikon_ispicked = true; 
             }
         }
     }
