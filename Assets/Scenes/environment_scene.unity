@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 1
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 60
+    agentClimb: 1.8
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -2053,6 +2053,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: maze_iterative1_test2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4d092725be1d9414598e8ca79bb4edd2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4d092725be1d9414598e8ca79bb4edd2,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d092725be1d9414598e8ca79bb4edd2, type: 3}
 --- !u!1 &1520792391 stripped
@@ -2254,6 +2264,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: staircase_test4
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d9bd2c375161a4b00a8811ef62d2210c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d9bd2c375161a4b00a8811ef62d2210c,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9bd2c375161a4b00a8811ef62d2210c, type: 3}
@@ -3197,6 +3217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: plane_with_hole 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ad3f5a7517e6341f68f79f59f71c9420,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad3f5a7517e6341f68f79f59f71c9420, type: 3}
