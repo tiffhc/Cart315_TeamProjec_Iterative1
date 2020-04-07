@@ -6,7 +6,7 @@ using System;
 
 public class Vegetable : MonoBehaviour
 {
-    private bool f_pressed;
+    public bool f_pressed = false; 
     private bool e_pressed;
 
     public bool daikon_ispicked; 
@@ -36,7 +36,7 @@ public class Vegetable : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        f_pressed = Input.GetKeyDown("f");
+        f_pressed = Input.GetKeyDown("f"); //returns true if pressed 
      
         /*
         e_pressed = Input.GetKeyDown("e"); 
@@ -81,12 +81,8 @@ public class Vegetable : MonoBehaviour
             Debug.Log("Found player by vegetable"); 
             if(f_pressed)
             {
-                if (!alreadyPlayed)
-                {
-                    Debug.Log("Playing audio"); 
-                    pickup.PlayOneShot(PickUpSound);
-                    alreadyPlayed = true; 
-                }
+
+                playPickUpAudio(); 
                 daikon_ispicked = true;
                 this.gameObject.SetActive(false);
             }
@@ -122,6 +118,16 @@ public class Vegetable : MonoBehaviour
         Destroy(this.gameObject); 
     }
 
+    private void playPickUpAudio()
+    {
+        if (!alreadyPlayed)
+        {
+            Debug.Log("Playing audio");
+            //pickup.PlayOneShot(PickUpSound);
+            AudioSource.PlayClipAtPoint(PickUpSound, transform.position);
+            alreadyPlayed = true;
+        }
+    }
 
 
 }
