@@ -63,4 +63,9 @@ public class HealthBar : MonoBehaviour
     {
         return hitpoint; 
     }
+
+    public void setHitpoint(float nh)
+    {
+        hitpoint = nh; 
+    }
 }

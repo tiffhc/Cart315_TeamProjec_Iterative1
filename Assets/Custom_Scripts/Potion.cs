@@ -9,7 +9,7 @@ public class Potion : MonoBehaviour
     public bool potion_picked = false; 
 
     public AudioClip PickUpSound;
-    public float volume;
+    public float volume = 1; 
     AudioSource pickup;
     public bool alreadyPlayed = false;
 

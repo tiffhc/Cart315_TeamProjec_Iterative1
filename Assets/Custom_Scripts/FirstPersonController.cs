@@ -50,7 +50,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public Potion heal;
         bool has_potion;
 
-        public HealthBar player_health; 
+        private HealthBar player_health; 
 
         // Use this for initialization
         private void Start()
@@ -69,7 +69,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             v = vegetable.GetComponent<Collider>();
 
             //Can you get an instance to this current player's health
-            player_health = this.GetComponent<HealthBar>(); 
+            player_health = GetComponent<HealthBar>(); 
         }
 
 
@@ -101,7 +101,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //DAIKON IS picked
             //instantiate game object 
             daikon_picked = daikon.daikon_ispicked;
-
             if(daikon_picked)
             {
                 //if (vegetable.activeSelf == false)
@@ -129,8 +128,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     Debug.Log("Player pressed E - USING POTION");
 
-                    player_health.getHitpoint(); 
-
+                    float current_health = player_health.getHitpoint();
+                    player_health.setHitpoint(current_health + 50.0f);
+                    Debug.Log(player_health.getHitpoint()); 
                 }
             }
 
