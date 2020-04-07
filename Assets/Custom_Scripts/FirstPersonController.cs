@@ -45,8 +45,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public GameObject vegetable;
         private Collider v;
         public Vegetable daikon;
+        bool daikon_picked;
 
-        bool daikon_picked; 
+        public Potion heal;
+        bool has_potion;
+
+        public HealthBar player_health; 
+
         // Use this for initialization
         private void Start()
         {
@@ -61,7 +66,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
 
-            v = vegetable.GetComponent<Collider>(); 
+            v = vegetable.GetComponent<Collider>();
+
+            //Can you get an instance to this current player's health
+            player_health = this.GetComponent<HealthBar>(); 
         }
 
 
@@ -89,6 +97,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
 
+
+            //DAIKON IS picked
             //instantiate game object 
             daikon_picked = daikon.daikon_ispicked;
 
@@ -98,7 +108,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        Debug.Log("Player pressed E");
+                        Debug.Log("Player pressed E - DAIKON");
 
                         vegetable.transform.position = Vector3.MoveTowards(vegetable.transform.position, this.transform.position, 1000f * Time.deltaTime);
 
@@ -108,8 +118,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
                         vegetable.SetActive(true);
                         v.isTrigger = false;
                     }
-                
+            
             }
+
+            has_potion = heal.potion_picked; 
+
+            if(has_potion)
+            {
+                if(Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log("Player pressed E - USING POTION");
+
+                    player_health.getHitpoint(); 
+
+                }
+            }
+
         }
 
 

@@ -58,4 +58,9 @@ public class HealthBar : MonoBehaviour
 
         UpdateHealthBar();
     }
+
+    public float getHitpoint()
+    {
+        return hitpoint; 
+    }
 }

@@ -81,7 +81,6 @@ public class Vegetable : MonoBehaviour
             Debug.Log("Found player by vegetable"); 
             if(f_pressed)
             {
-
                 playPickUpAudio(); 
                 daikon_ispicked = true;
                 this.gameObject.SetActive(false);
