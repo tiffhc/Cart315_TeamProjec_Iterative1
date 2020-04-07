@@ -10,7 +10,7 @@ public class DropAudioSound : MonoBehaviour
     public bool alreadyPlayed = false;
 
 
-    public bool itemPickedUp = false;
+    public bool vegePickedUp = false;
     public Vegetable daikon;
 
     // Start is called before the first frame update
@@ -24,13 +24,14 @@ public class DropAudioSound : MonoBehaviour
     {
         if (daikon.daikon_ispicked)
         {
-            itemPickedUp = true;
+            vegePickedUp = true;
         }
     }
 
+
     private void OnTriggerStay(Collider other)
     {
-        if (itemPickedUp)
+        if (vegePickedUp)
         {
             if (!alreadyPlayed)
             {

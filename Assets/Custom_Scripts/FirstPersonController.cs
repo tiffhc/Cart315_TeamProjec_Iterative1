@@ -49,7 +49,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Potion heal;
         bool has_potion;
-        bool used_potion = false; 
+        bool used_potion = false;
+        public DrinkPotionAudio potionAudio; 
 
         private HealthBar player_health; 
 
@@ -131,9 +132,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     used_potion = true;
                     //Debug.Log(player_health.getHitpoint());
-                    Debug.Log("Player used potion!"); 
+                    Debug.Log("Player used potion!");
+                    potionAudio.DrinkingAudio(); 
+
                     float current_health = player_health.getHitpoint();
                     //Add 50.0f
+                    if(current_health < 30)
+                    {
+                        if ((current_health + 50.0f) >= 30)
+                        {
+                            player_health.LowHealth.enabled = false;
+                            player_health.currentHealth.enabled = true;
+                        }
+                    }
 
                     player_health.setHitpoint(current_health + 50.0f);
                     if(player_health.getHitpoint() > player_health.getMaxHitPoint())
