@@ -49,6 +49,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Potion heal;
         bool has_potion;
+        bool used_potion = false; 
 
         private HealthBar player_health; 
 
@@ -122,16 +123,33 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             has_potion = heal.potion_picked; 
 
-            if(has_potion)
+            if((has_potion)&&(Input.GetKeyDown(KeyCode.R)))
             {
-                if(Input.GetKeyDown(KeyCode.E))
+                Debug.Log("Player pressed R - USING POTION");
+                
+                if (!used_potion)
                 {
-                    Debug.Log("Player pressed E - USING POTION");
-
+                    used_potion = true;
+                    //Debug.Log(player_health.getHitpoint());
+                    Debug.Log("Player used potion!"); 
                     float current_health = player_health.getHitpoint();
+                    //Add 50.0f
+
                     player_health.setHitpoint(current_health + 50.0f);
-                    Debug.Log(player_health.getHitpoint()); 
+                    if(player_health.getHitpoint() > player_health.getMaxHitPoint())
+                    {
+                        player_health.setHitpoint(player_health.getMaxHitPoint());
+                        player_health.UpdateHealthBar(); 
+                    }
+                    else
+                    {
+                        player_health.UpdateHealthBar(); 
+                    }
+                    //has_potion = false; 
+                    //Debug.Log(player_health.getHitpoint());
+                    //Destroy(heal);
                 }
+                
             }
 
         }

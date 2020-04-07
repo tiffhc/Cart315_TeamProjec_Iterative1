@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
         LowHealth.enabled = false;
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         float r = hitpoint / maxHitpoint;
         currentHealth.rectTransform.localScale = new Vector3(r, 1, 1);
@@ -58,7 +58,11 @@ public class HealthBar : MonoBehaviour
 
         UpdateHealthBar();
     }
+    public float getMaxHitPoint()
+    {
+        return maxHitpoint; 
 
+    }
     public float getHitpoint()
     {
         return hitpoint; 
@@ -66,6 +70,7 @@ public class HealthBar : MonoBehaviour
 
     public void setHitpoint(float nh)
     {
-        hitpoint = nh; 
+        hitpoint = nh;
+        //UpdateHealthBar();
     }
 }

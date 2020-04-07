@@ -13,6 +13,8 @@ public class Potion : MonoBehaviour
     AudioSource pickup;
     public bool alreadyPlayed = false;
 
+    public MeshRenderer cork;
+    public MeshRenderer liquid; 
     // Start is called before the first frame update
     void Start()
     {
@@ -27,16 +29,21 @@ public class Potion : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log("Detected Potion"); 
         if(other.gameObject.CompareTag("Player"))
         {
             if(f_pressed)
             {
+                Debug.Log("Player pressed F"); 
                 //Play pickup audio
                 playPickUpAudio();
 
                 potion_picked = true; 
+
                 //Make potion disappear
-                this.gameObject.GetComponent<MeshRenderer>().enabled = false; 
+                this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+                cork.enabled = false;
+                liquid.enabled = false; 
             }
         }
     }
@@ -46,7 +53,7 @@ public class Potion : MonoBehaviour
     {
         if (!alreadyPlayed)
         {
-            Debug.Log("Playing audio");
+            //Debug.Log("Playing audio");
             //pickup.PlayOneShot(PickUpSound);
             AudioSource.PlayClipAtPoint(PickUpSound, transform.position);
             alreadyPlayed = true;
