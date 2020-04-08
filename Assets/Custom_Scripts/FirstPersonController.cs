@@ -1,5 +1,8 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
+using System;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -52,7 +55,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         bool used_potion = false;
         public DrinkPotionAudio potionAudio; 
 
-        private HealthBar player_health; 
+        private HealthBar player_health;
+
+        public Shield protection;
+        bool has_shield;
+        bool used_shield = false;
+        private float stopHealth; 
 
         // Use this for initialization
         private void Start()
@@ -127,17 +135,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if((has_potion)&&(Input.GetKeyDown(KeyCode.R)))
             {
                 Debug.Log("Player pressed R - USING POTION");
-                
+
                 if (!used_potion)
                 {
                     used_potion = true;
                     //Debug.Log(player_health.getHitpoint());
                     Debug.Log("Player used potion!");
-                    potionAudio.DrinkingAudio(); 
+                    potionAudio.DrinkingAudio();
 
                     float current_health = player_health.getHitpoint();
                     //Add 50.0f
-                    if(current_health < 30)
+                    if (current_health < 30)
                     {
                         if ((current_health + 50.0f) >= 30)
                         {
@@ -147,24 +155,49 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
 
                     player_health.setHitpoint(current_health + 50.0f);
-                    if(player_health.getHitpoint() > player_health.getMaxHitPoint())
+                    if (player_health.getHitpoint() > player_health.getMaxHitPoint())
                     {
                         player_health.setHitpoint(player_health.getMaxHitPoint());
-                        player_health.UpdateHealthBar(); 
+                        player_health.UpdateHealthBar();
                     }
                     else
                     {
-                        player_health.UpdateHealthBar(); 
+                        player_health.UpdateHealthBar();
                     }
                     //has_potion = false; 
                     //Debug.Log(player_health.getHitpoint());
                     //Destroy(heal);
                 }
-                
+            }
+
+            has_shield = protection.shield_picked; 
+
+            if((has_shield)&&(Input.GetKeyDown(KeyCode.T)))
+            {
+                if(!used_shield)
+                {
+                    used_shield = true;
+                    stopHealth = player_health.getHitpoint(); //current_health point
+                    StartCoroutine(ProtectionTime());
+
+                    Debug.Log("Finished protection coroutine");
+                    player_health.setHitpoint(stopHealth);
+                    player_health.UpdateHealthBar();
+                }
             }
 
         }
 
+        IEnumerator ProtectionTime()
+        {
+            Debug.Log("Player protected from damage");
+            player_health.setHitpoint(stopHealth);
+            player_health.UpdateHealthBar();
+            yield return new WaitForSeconds(3);
+            player_health.setHitpoint(stopHealth);
+            player_health.UpdateHealthBar();
+
+        }
 
         private void PlayLandingSound()
         {
