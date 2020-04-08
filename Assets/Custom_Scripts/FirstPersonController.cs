@@ -174,10 +174,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if((has_shield)&&(Input.GetKeyDown(KeyCode.T)))
             {
+                
                 if(!used_shield)
                 {
                     used_shield = true;
-                    
+                    Debug.Log("Using Shield");
                     StartCoroutine(ProtectionTime());
 
                     //Debug.Log("Finished protection coroutine");
@@ -193,18 +194,24 @@ namespace UnityStandardAssets.Characters.FirstPerson
             Debug.Log("Player protected from damage");
             //current_health point
             stopHealth = player_health.getHitpoint();
+            Debug.Log(stopHealth);
+
             //player_health.setHitpoint(stopHealth);
             //player_health.UpdateHealthBar();
 
-            player_health.TakeDamage(0); 
-            Debug.Log(stopHealth); 
+            player_health.TakeDamage(0);
+            player_health.UpdateHealthBar();
 
             yield return new WaitForSeconds(10);
+            //Safe guard function 
             player_health.setHitpoint(stopHealth);
             player_health.UpdateHealthBar();
 
             Debug.Log("Counted 3 seconds");
-            Debug.Log(player_health.getHitpoint());
+            //Debug.Log(player_health.getHitpoint());
+
+            player_health.TakeDamage(20);
+
             //player_health.setHitpoint(stopHealth);
             //player_health.UpdateHealthBar();
         }
