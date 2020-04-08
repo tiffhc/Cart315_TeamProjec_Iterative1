@@ -177,10 +177,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if(!used_shield)
                 {
                     used_shield = true;
-                    stopHealth = player_health.getHitpoint(); //current_health point
+                    
                     StartCoroutine(ProtectionTime());
 
-                    Debug.Log("Finished protection coroutine");
+                    //Debug.Log("Finished protection coroutine");
                     player_health.setHitpoint(stopHealth);
                     player_health.UpdateHealthBar();
                 }
@@ -191,12 +191,22 @@ namespace UnityStandardAssets.Characters.FirstPerson
         IEnumerator ProtectionTime()
         {
             Debug.Log("Player protected from damage");
-            player_health.setHitpoint(stopHealth);
-            player_health.UpdateHealthBar();
-            yield return new WaitForSeconds(3);
+            //current_health point
+            stopHealth = player_health.getHitpoint();
+            //player_health.setHitpoint(stopHealth);
+            //player_health.UpdateHealthBar();
+
+            player_health.TakeDamage(0); 
+            Debug.Log(stopHealth); 
+
+            yield return new WaitForSeconds(10);
             player_health.setHitpoint(stopHealth);
             player_health.UpdateHealthBar();
 
+            Debug.Log("Counted 3 seconds");
+            Debug.Log(player_health.getHitpoint());
+            //player_health.setHitpoint(stopHealth);
+            //player_health.UpdateHealthBar();
         }
 
         private void PlayLandingSound()
