@@ -211,12 +211,18 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 90ae6bddb72d14995930498ebf0fb8dc,
         type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> db139e9859b101bd068c6a1df8b179e61adda12e
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 90ae6bddb72d14995930498ebf0fb8dc,
         type: 3}
+<<<<<<< HEAD
+>>>>>>> db139e9859b101bd068c6a1df8b179e61adda12e
+=======
 >>>>>>> db139e9859b101bd068c6a1df8b179e61adda12e
       propertyPath: m_IsActive
       value: 1
